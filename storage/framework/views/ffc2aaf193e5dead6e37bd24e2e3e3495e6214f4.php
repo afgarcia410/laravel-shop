@@ -57,6 +57,9 @@
             </form>
 <div style="width: 100%; height: auto; margin: 50px 0; display: flex; flex-wrap: wrap; justify-content: center;">
    <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+   
+   <form action="<?php echo e(route('cart.store')); ?>" method="POST" enctype="multipart/form-data">
+   
         <div style="width: 300px; height: auto; border: 1px solid black; margin: 20px;">
             <div style="width: 100%; height: 280px; background-image: url('assets/products/<?php echo e($product->image); ?>'); 
                         background-size: cover; background-position: center center;"></div>
@@ -64,7 +67,11 @@
                 <a href="product/<?php echo e($product->id); ?>" style="text-align: center; font-weight: bold; font-style: normal; color: inherit;"><h3 ><?php echo e($product->name); ?></h3></a>
                 <h4 style="display: flex; justify-content: flex-start; padding: 10px; padding-top: 30px;"> <?php echo e($product->price); ?>€</h4>
             </div>
+            <button class="px-4 py-2 text-white bg-blue-800 rounded" style="background-color:green">Add To Cart</button>
         </div>
+        
+        </form>
+        
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
     
