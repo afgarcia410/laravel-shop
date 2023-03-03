@@ -124,7 +124,6 @@ class ProductController extends Controller
         }
         
         $products =product::where('name','Like', '%'.$search.'%')->paginate(6);
-        $products = product::paginate(6);
         return view('products.index',compact('products'));
     }
     
@@ -159,7 +158,8 @@ class ProductController extends Controller
     public function viewProduct($id){
         $products = product::find($id);
         return view('products.viewProduct',compact('products'));
-        
-        
     }
+
+    
+    
 }
